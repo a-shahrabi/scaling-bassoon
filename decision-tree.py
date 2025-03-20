@@ -44,3 +44,12 @@ clf = DecisionTreeClassifier(
 # Training the model
 clf.fit(X_train, y_train)
 
+# Cross-validation for more robust evaluation
+cv_scores = cross_val_score(clf, X, y, cv=5)
+print(f"Cross-validation scores: {cv_scores}")
+print(f"Mean CV score: {cv_scores.mean():.4f} ± {cv_scores.std():.4f}")
+
+# predictions on the test set
+y_pred = clf.predict(X_test)
+
+
