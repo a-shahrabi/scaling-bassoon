@@ -118,3 +118,5 @@ plt.tight_layout()
 plt.show()
 
 
+# import joblib
+# joblib.dump(clf, 'decision_tree_model.pkl')
