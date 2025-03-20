@@ -53,3 +53,13 @@ print(f"Mean CV score: {cv_scores.mean():.4f} ± {cv_scores.std():.4f}")
 y_pred = clf.predict(X_test)
 
 
+# Evaluating the model with multiple metrics
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy * 100:.2f}%")
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred, target_names=target_names))
+
+# Create a confusion matrix
+cm = confusion_matrix(y_test, y_pred)
+print("\nConfusion Matrix:")
+print(cm)
