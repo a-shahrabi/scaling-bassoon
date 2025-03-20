@@ -96,3 +96,25 @@ plt.figure(figsize=(15, 10))
 plot_tree(clf, filled=True, feature_names=feature_names, class_names=target_names, rounded=True)
 plt.title("Decision Tree Visualization")
 plt.show()
+
+
+
+# Feature importance analysis
+feature_importance = pd.DataFrame({
+    'Feature': feature_names,
+    'Importance': clf.feature_importances_
+}).sort_values('Importance', ascending=False)
+
+print("\nFeature Importance:")
+print(feature_importance)
+
+# Visualize feature importance
+plt.figure(figsize=(10, 6))
+plt.barh(feature_importance['Feature'], feature_importance['Importance'])
+plt.xlabel('Importance')
+plt.ylabel('Feature')
+plt.title('Feature Importance')
+plt.tight_layout()
+plt.show()
+
+
