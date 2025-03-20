@@ -22,3 +22,25 @@ df['species'] = df['target'].map({0: target_names[0], 1: target_names[1], 2: tar
 # print(df.head())
 # print(df.describe())
 # print(df.groupby('species').mean())
+
+
+# Splitting the data into training and testing sets (80% training, 20% testing)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Feature scaling (often helps with decision trees)
+# if needed - it helps with certain datasets
+# scaler = StandardScaler()
+# X_train_scaled = scaler.fit_transform(X_train)
+# X_test_scaled = scaler.transform(X_test)
+
+# Creating the decision tree classifier with hyperparameters
+clf = DecisionTreeClassifier(
+    max_depth=3,  # Prevents overfitting
+    min_samples_split=5,  # Minimum samples required to split a node
+    criterion='entropy',  # Can use 'gini' or 'entropy'
+    random_state=42
+)
+
+# Training the model
+clf.fit(X_train, y_train)
+
