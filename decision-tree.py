@@ -18,7 +18,7 @@ df = pd.DataFrame(X, columns=feature_names)
 df['target'] = y
 df['species'] = df['target'].map({0: target_names[0], 1: target_names[1], 2: target_names[2]})
 
-# Data exploration (uncomment to see)
+# Data exploration 
 # print(df.head())
 # print(df.describe())
 # print(df.groupby('species').mean())
