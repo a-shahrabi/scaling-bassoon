@@ -75,4 +75,24 @@ def plot_confusion_matrix(cm, classes):
     plt.xticks(tick_marks, classes, rotation=45)
     plt.yticks(tick_marks, classes)
     
-   
+    # text annotations
+    thresh = cm.max() / 2.
+    for i in range(cm.shape[0]):
+        for j in range(cm.shape[1]):
+            plt.text(j, i, format(cm[i, j], 'd'),
+                    horizontalalignment="center",
+                    color="white" if cm[i, j] > thresh else "black")
+    
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+    plt.show()
+
+# visualizing the confusion matrix
+plot_confusion_matrix(cm, target_names)
+
+# Visualizing the decision tree
+plt.figure(figsize=(15, 10))
+plot_tree(clf, filled=True, feature_names=feature_names, class_names=target_names, rounded=True)
+plt.title("Decision Tree Visualization")
+plt.show()
